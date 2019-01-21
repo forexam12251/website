@@ -1,0 +1,1 @@
+i az ne znam
