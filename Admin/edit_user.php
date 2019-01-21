@@ -103,11 +103,11 @@ tr:nth-child(even) {
 		
 		if(isset($_POST['submit'])){
 			
-			$newusername = $_POST[''];
-			$newpassword = $_POST[''];
-			$newemail = $_POST[''];
-			$newfirst_name = $_POST[''];
-			$newlast_name = $_POST[''];
+			$newusername = $_POST['username'];
+			$newpassword = $_POST['password'];
+			$newemail = $_POST['email'];
+			$newfirst_name = $_POST['first_name'];
+			$newlast_name = $_POST['last_name'];
 			$update = "UPDATE `users` 
 					SET `username` = '$newusername',
 					`password` = '$newpassword',
@@ -119,6 +119,7 @@ tr:nth-child(even) {
 			if(isset($_POST['submit'])){
 				if($done_update == true){
 					echo "<script type='text/javascript'>alert('User Edited!');</script>";
+					header("Location: edit_user.php?id={$num}");
 					}
 				else{
 					echo "<script type='text/javascript'>alert('User not Edited!')</script>";
@@ -171,29 +172,44 @@ display:none;
 <div class="row">
  
 <div class="col-md-8">
-<h1>Edit user</h1>
-<form name="contact-form" action="" method="post" id="contact-form">
-<div>
-<label for="username">Username</label>
-<input type="text" class="form-control" name="username" placeholder="username" required>
-</div>
-<div>
-<label for="password">Password</label>
-<input type="text" class="form-control" name="password" placeholder="password" required>
-</div>
-<div > 	
-<label for="email">Email</label>
-<input type="email" class="form-control" name="email" placeholder="Email" required>
-</div>
-<div >
-<label for="first_name">First Name</label>
-<input type="text" class="form-control" name="first_name" placeholder="first_name" required>
-</div>
-<div>
-<label for="last_name">Last Name</label>
-<input type="text" class="form-control" name="last_name" placeholder="last_name"  required>
-</div>
-</form><!--value=""-->
+	<h1>Edit user</h1>
+	<form name="contact-form" method="post" id="contact-form">
+		<div>
+		<label for="username">Username</label>
+		<input type="text" class="form-control" name="username" placeholder="Username">
+		</div>
+		<div>
+		<label for="password">Password</label>
+		<input type="text" class="form-control" name="password" placeholder="Password">
+		</div>
+		<div > 	
+		<label for="email">Email</label>
+		<input type="email" class="form-control" name="email" placeholder="Email">
+		</div>
+		<div >
+		<label for="first_name">First Name</label>
+		<input type="text" class="form-control" name="first_name" placeholder="First Name">
+		</div>
+		<div>
+		<label for="last_name">Last Name</label>
+		<input type="text" class="form-control" name="last_name" placeholder="Last Name">
+		</div>
+		<a href="edit_user.php">
+		<input type="button" class="btn btn-primary" value="Refresh"/>
+		</a>
+		<a href="admin.php">
+		<input type="button" class="btn btn-primary" value="Back"/>
+		</a>
+		<a href="create.php">
+		<input type="button" class="btn btn-primary" value="Add User"/>
+		</a>
+		<a>
+		<button type="submit" class="btn btn-primary" name="submit" value="Edit user">Update</button>
+		</a>
+		<a href="edit_user.php">
+		<input type="submit" class="btn btn-primary" name="delete" value="Delete User"/>
+		</a>
+	</form><!--value=""-->
 <!--<script>class="form-group"
 function update() {
 	var x;
@@ -244,21 +260,7 @@ $(this).css("border","1px solid #eeeeee");
 </script>-->
 <br>
 <form method="post">
-<a href="edit_user.php">
-<input type="button" class="btn btn-primary" value="Refresh"/>
-</a>
-<a href="admin.php">
-<input type="button" class="btn btn-primary" value="Back"/>
-</a>
-<a href="create.php">
-<input type="button" class="btn btn-primary" value="Add User"/>
-</a>
-<a>
-<button type="submit" class="btn btn-primary" name="submit" value="Edit User">Update</button>
-</a>
-<a href="edit_user.php">
-<input type="submit" class="btn btn-primary" name="delete" value="Delete User"/>
-</a>
+	
 </form>
 </body>
 </html>
