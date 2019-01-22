@@ -4,6 +4,12 @@ echo "<link rel='stylesheet' type='text/css' href='../CSS/home_css.css' />";
 include_once ("profile_admin.php");
 include_once("../footer.php");
 include_once ("../db_connection.php");
+session_start();
+
+if($_SESSION['user_id'] != 1)
+{
+	header("location: ../404page.php");
+}
 if (isset($_POST['username']) && isset($_POST['password'])){
         $username = $_POST['username'];
 		$email = $_POST['email'];

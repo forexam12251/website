@@ -1,10 +1,17 @@
 <?php
 //admin can edit user information
 echo "<link rel='stylesheet' type='text/css' href='../CSS/home_css.css' />";
-session_start();
+
 include_once("../footer.php");
 require ("../db_connection.php");
 include_once ("profile_admin.php");
+
+session_start();
+
+if($_SESSION['user_id'] != 1)
+{
+	header("location: ../404page.php");
+}
 $query = "SELECT * FROM `users`";
 $result = mysqli_query($conn, $query);
 	
