@@ -4,7 +4,7 @@ session_start();
 include_once("../footer.php");
 require ("../db_connection.php");
 include_once ("profile_admin.php");
-$query = "SELECT * FROM `vhs`";
+$query = "SELECT * FROM `dvd`";
 $result = mysqli_query($conn, $query);
 ?>
 <style>
@@ -37,7 +37,7 @@ tr:nth-child(even) {
 		while ($row = mysqli_fetch_array($result)){
 		//$editUser=$row['username'];
 			echo "<tr>";
-			echo "<td><a href='edit_movie_vhs.php?id=".$row["id"]."'>".$row["id"]."</a></td>";
+			echo "<td><a href='edit_movie_dvd.php?id=".$row["id"]."'>".$row["id"]."</a></td>";
 			echo "<td>".$row["name"]."</td>";
 			echo "<td>".$row["release_date"]."</td>";
 			echo "<td>".$row["category"]."</td>";	
@@ -46,14 +46,14 @@ tr:nth-child(even) {
 			}
 	}
 	else{
-		$query="SELECT * FROM `vhs` WHERE `id`= {$_GET['id']}";
+		$query="SELECT * FROM `dvd` WHERE `id`= {$_GET['id']}";
 		$result=mysqli_query($conn,$query);
 		$row = mysqli_fetch_assoc($result);
 		
 		$num = $_GET['id'];
 		
 		echo "<tr>";
-		echo "<td><a href='edit_movie_vhs.php?id=".$row["id"]."'>".$row["id"]."</a></td>";
+		echo "<td><a href='edit_movie_dvd.php?id=".$row["id"]."'>".$row["id"]."</a></td>";
 		echo "<td>".$row["name"]."</td>";
 		echo "<td>".$row["release_date"]."</td>";
 		echo "<td>".$row["category"]."</td>";	
@@ -68,7 +68,7 @@ tr:nth-child(even) {
 			$newdate = $_POST['release_date'];
 			$newcategory = $_POST['category'];
 			$newavailable = $_POST['available'];
-			$update = "UPDATE `vhs` 
+			$update = "UPDATE `dvd` 
 					SET `name` = '$newname',
 					`release_date` = '$newdate',
 					`category` = '$newcategory',
@@ -77,8 +77,8 @@ tr:nth-child(even) {
 			$done_update = mysqli_query($conn,$update);
 			if(isset($_POST['submit'])){
 				if($done_update == true){
-					echo "<script type='text/javascript'>alert('Movie Edited!'); Location.href='edit_movie_vhs.php?id={$num}'</script>";
-					header("Location: edit_movie_vhs.php?id={$num}");
+					echo "<script type='text/javascript'>alert('Movie Edited!'); Location.href='edit_movie_dvd.php?id={$num}'</script>";
+					header("Location: edit_movie_dvd.php?id={$num}");
 					}
 				else{
 					echo "<script type='text/javascript'>alert('Movie not Edited!')</script>";
@@ -91,10 +91,10 @@ tr:nth-child(even) {
 		
 		
 		if(isset($_POST['delete'])){
-			$delete = "DELETE FROM `vhs` WHERE `id`= {$num}";
+			$delete = "DELETE FROM `dvd` WHERE `id`= {$num}";
 			$done_delete = mysqli_query($conn,$delete);
 			if(isset($done_delete)){
-			echo "<script type='text/javascript'>alert('Movie Deleted!'); location.href='edit_movie_vhs.php';</script>";
+			echo "<script type='text/javascript'>alert('Movie Deleted!'); location.href='edit_movie_dvd.php';</script>";
 			}
 			else{
 			echo "<script type='text/javascript'>alert('Movie not Deleted!')</script>";
@@ -148,7 +148,7 @@ display:none;
 		<label for="available">Available</label>
 		<input type="text" class="form-control" name="available" placeholder="Available">
 		</div>
-		<a href="edit_movie_vhs.php">
+		<a href="edit_movie_dvd.php">
 		<input type="button" class="btn btn-primary" value="Refresh"/>
 		</a>
 		<a href="admin.php">
@@ -160,14 +160,11 @@ display:none;
 		<a>
 		<button type="submit" class="btn btn-primary" name="submit" value="Edit user">Update Movie</button>
 		</a>
-		<a href="edit_movie_vhs.php">
+		<a href="edit_movie_dvd.php">
 		<input type="submit" class="btn btn-primary" name="delete" value="Delete Movie"/>
 		</a>
 	</form>
 <br>
-<form method="post">
-	
-</form>
 </body>
 </html>
 

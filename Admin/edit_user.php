@@ -119,7 +119,7 @@ tr:nth-child(even) {
 			if(isset($_POST['submit'])){
 				if($done_update == true){
 					echo "<script type='text/javascript'>alert('User Edited!'); Location.href='edit_user.php?id={$num}'</script>";
-					//header("Location: edit_user.php?id={$num}");
+					header("Location: edit_user.php?id={$num}");
 					}
 				else{
 					echo "<script type='text/javascript'>alert('User not Edited!')</script>";
@@ -127,7 +127,7 @@ tr:nth-child(even) {
 		}
 		
 		
-		
+		}
 		
 		
 		
@@ -143,7 +143,7 @@ tr:nth-child(even) {
 		}
 		
 	}
-}
+
 //<?php echo $row['last_name'];}
 	
 ?>
@@ -207,9 +207,10 @@ display:none;
 		<button type="submit" class="btn btn-primary" name="submit" value="Edit user">Update</button>
 		</a>
 		<a href="edit_user.php">
-		<input type="submit" class="btn btn-primary" name="delete" value="Delete User"/>
+		<button type="submit" class="btn btn-primary" name="delete" value="Delete User">Delete</button>
 		</a>
-	</form><!--value=""-->
+	</form>
+</div><!--value=""-->
 <!--<script>class="form-group"
 function update() {
 	var x;
@@ -259,8 +260,5 @@ $(this).css("border","1px solid #eeeeee");
 });
 </script>-->
 <br>
-<form method="post">
-	
-</form>
 </body>
 </html>

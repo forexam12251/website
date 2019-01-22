@@ -57,7 +57,7 @@ display:none;
 </div>
 <div class="form-group">
 <label for="release_date">Release Date</label>
-<input type="text" class="form-control" name="release_date" placeholder="release_date" >
+<input type="text" class="form-control" name="release_date" placeholder="release date" >
 </div>
 <div class="form-group">
 <label for="category">Category</label>

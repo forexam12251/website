@@ -3,6 +3,9 @@ echo "<link rel='stylesheet' type='text/css' href='../CSS/home_css.css' />";
 include_once("../footer.php");
 include_once ("../db_connection.php");
 include_once ("profile_admin.php");
+$query = "SELECT * FROM `vhs`";
+$result = mysqli_query($conn, $query);
+
 
     if (isset($_POST['name'])){
         $name = $_POST['name'];
@@ -57,7 +60,7 @@ display:none;
 </div>
 <div class="form-group">
 <label for="release_date">Release Date</label>
-<input type="text" class="form-control" name="release_date" placeholder="release_date" >
+<input type="text" class="form-control" name="release_date" placeholder="release date" >
 </div>
 <div class="form-group">
 <label for="category">Category</label>
