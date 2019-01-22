@@ -9,9 +9,10 @@ include_once ("profile_admin.php");
 		$release = $_POST['release_date'];
         $category = $_POST['category'];
 		$available = $_POST['available'];
+		$type = $_POST['type'];
 		
-		$query = "INSERT INTO `dvd` (name, release_date, category, available) 
-					VALUES ('$name', '$release', '$category', '$available')";
+		$query = "INSERT INTO `dvd` (name, release_date, category, available, type) 
+					VALUES ('$name', '$release', '$category', '$available', '$type')";
 		$result = mysqli_query($conn, $query);
 		if($result==true){
 		echo "<script type='text/javascript'>alert('DVD Movie Added!');</script>";
@@ -66,6 +67,10 @@ display:none;
 <div class="form-group">
 <label for="available">Available</label>
 <input type="int" class="form-control" name="available" placeholder="available" >
+</div>
+<div class="form-group">
+<label for="type">Type</label>
+<input type="text" class="form-control" name="type" placeholder="Type" >
 </div>
  
 <button type="submit" class="btn btn-primary" name="submit" value="Add" id="submit_form">Add</button>

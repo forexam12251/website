@@ -1,15 +1,15 @@
 <?php
-   //include CSS Style Sheet
-   echo "<link rel='stylesheet' type='text/css' href='../CSS/home_css.css' />";
-   include_once("header.php");
-   include_once("footer.php");
-   require ("db_connection.php");
-   $query1 = "SELECT * FROM `vhs` WHERE `category`='Action' AND `type`='VHS'";
-   $query2 = "SELECT * FROM `dvd` WHERE `category`='Fantasy' AND `type`='DVD'";
-   $query3 = "SELECT * FROM `blue-ray` WHERE `category`='Comedy' AND `type`='Blu-Ray'";
-   $result1 = mysqli_query($conn, $query1);
-   $result2 = mysqli_query($conn, $query2);
-   $result3 = mysqli_query($conn, $query3);
+echo "<link rel='stylesheet' type='text/css' href='../CSS/home_css.css' />";
+include_once("../footer.php");
+include_once ("../db_connection.php");
+include_once ("../header.php");
+$query1 = "SELECT * FROM `vhs` WHERE `category` = 'Fantasy' AND `type` = 'VHS'";
+$query2 = "SELECT * FROM `dvd` WHERE `category` = 'Fantasy' AND `type` = 'DVD'";
+$query3 = "SELECT * FROM `blue-ray` WHERE `category` = 'Fantasy' AND `type` = 'Blu-Ray'";
+$result1 = mysqli_query($conn, $query1);
+$result2 = mysqli_query($conn, $query2);
+$result3 = mysqli_query($conn, $query3);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,8 +18,10 @@
 </head>
 
 <body>
-<h2 style="text-align: center">Top 10 Movies</h2>
-<html>
+<h2 style="text-align: center">Category: Fantasy <a href="../categories.php">
+	<input input type="button" class="btn btn-primary" value="Back"/>
+	</a>
+</h2>
 <head>
 <style>
 table {
@@ -36,6 +38,22 @@ td, th {
 
 tr:nth-child(even) {
   background-color: #dddddd;
+}
+</style>
+<style>
+ 
+#loading-img{
+display:none;
+}
+ 
+.response_msg{
+margin-top:10px;
+font-size:13px;
+background:#E5D669;
+color:#ffffff;
+width:250px;
+padding:3px;
+display:none;
 }
 </style>
 <table id="myTable">
@@ -76,11 +94,15 @@ tr:nth-child(even) {
 			echo "</tr>";
 			}
 	}
-?>
 
+?>
+<div class="container">
+<div class="row">
+<div class="col-md-8">
+<div style="text-align: center">
+
+	</div>
 </body>
 
 
 </html>
-
-

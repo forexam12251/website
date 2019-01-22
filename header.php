@@ -11,6 +11,7 @@
 	<a href="#VHS">VHS</a>
 	<a href="#DVD">DVD</a>
 	<a href="#Blu-Ray">Blu-Ray</a>
+	<a href="../categories.php">Categories</a>
 	<a href="../contacts.php">Contact Us</a>
 	<a href="#about">About</a>
 	<a class="logout" href="../logout.php">Logout</a>

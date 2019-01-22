@@ -24,50 +24,16 @@ display:none;
 }
  
 </style>
+<br>
 <ul>
     <li><a href="create.php"><strong>Add User</strong></a> - add a user</li>
+	<br>
 	<li><a href="add_movie.php"><strong>Add Movie</strong></a> - add a movie</li>
+	<br>
     <li><a href="read.php"><strong>Messages</strong></a> - view all messages</li>
+	<br>
     <li><a href="edit_user.php"><strong>Edit User</strong></a> - edit a user</li>
+	<br>
 	<li><a href="edit_movie.php"><strong>Edit Movie</strong></a> - edit a movie</li>
 </ul>
-<script>
-$(document).ready(function(){
-$("#contact-form").on("submit",function(e){
-e.preventDefault();
-if($("#contact-form [name='from_who']").val() === '')
-{
-$("#contact-form [name='from_who']").css("border","1px solid red");
-}
-else if ($("#contact-form [name='email']").val() === '')
-{
-$("#contact-form [name='email']").css("border","1px solid red");
-}
-else
-{
-$("#loading-img").css("display","block");
-var sendData = $( this ).serialize();
-$.ajax({
-type: "POST",
-url: "contact_form_message.php",
-data: sendData,
-success: function(data){
-$("#loading-img").css("display","none");
-$(".response_msg").text(data);
-$(".response_msg").slideDown().fadeOut(3000);
-$("#contact-form").find("input[type=text], input[type=email], textarea").val("");
-}
- 
-});
-}
-});
- 
-$("#contact-form input").blur(function(){
-var checkValue = $(this).val();
-if(checkValue != '')
-{
-$(this).css("border","1px solid #eeeeee");
-}
-});
-});
-</script>
+

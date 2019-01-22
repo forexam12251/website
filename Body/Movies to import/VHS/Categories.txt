@@ -1,0 +1,7 @@
+Fantasy
+Horror
+Comedy
+Action
+Adventure
+Drama
+Sci-Fi
